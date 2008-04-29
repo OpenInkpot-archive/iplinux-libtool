@@ -1,0 +1,43 @@
+## Do not link against deplibs.  This is not needed for shared libs
+## on atleast ELF systems since those already know which libs they
+## need themself.  This seems to break a few things and will be fixed
+## in a better way in a future upstream version.
+
+Index: libtool-1.5.24/libtool.m4
+===================================================================
+--- libtool-1.5.24.orig/libtool.m4	2007-07-11 20:24:43.000000000 +0200
++++ libtool-1.5.24/libtool.m4	2007-07-11 20:28:09.000000000 +0200
+@@ -5509,6 +5509,9 @@
+   cygwin* | mingw*)
+     _LT_AC_TAGVAR(export_symbols_cmds, $1)='$NM $libobjs $convenience | $global_symbol_pipe | $SED -e '\''/^[[BCDGRS]][[ ]]/s/.*[[ ]]\([[^ ]]*\)/\1 DATA/;/^.*[[ ]]__nm__/s/^.*[[ ]]__nm__\([[^ ]]*\)[[ ]][[^ ]]*/\1 DATA/;/^I[[ ]]/d;/^[[AITW]][[ ]]/s/.*[[ ]]//'\'' | sort | uniq > $export_symbols'
+   ;;
++  linux* | k*bsd*-gnu)
++    _LT_AC_TAGVAR(link_all_deplibs, $1)=no
++  ;;
+   *)
+     _LT_AC_TAGVAR(export_symbols_cmds, $1)='$NM $libobjs $convenience | $global_symbol_pipe | $SED '\''s/.* //'\'' | sort | uniq > $export_symbols'
+   ;;
+@@ -5714,6 +5717,7 @@
+   $echo "local: *; };" >> $output_objdir/$libname.ver~
+ 	  $CC '"$tmp_sharedflag""$tmp_addflag"' $libobjs $deplibs $compiler_flags ${wl}-soname $wl$soname ${wl}-version-script ${wl}$output_objdir/$libname.ver -o $lib'
+ 	fi
++	_LT_AC_TAGVAR(link_all_deplibs, $1)=no
+       else
+ 	_LT_AC_TAGVAR(ld_shlibs, $1)=no
+       fi
+Index: libtool-1.5.24/ltmain.in
+===================================================================
+--- libtool-1.5.24.orig/ltmain.in	2007-07-11 20:24:43.000000000 +0200
++++ libtool-1.5.24/ltmain.in	2007-07-11 20:27:57.000000000 +0200
+@@ -2122,7 +2122,10 @@
+ 	case $pass in
+ 	dlopen) libs="$dlfiles" ;;
+ 	dlpreopen) libs="$dlprefiles" ;;
+-	link) libs="$deplibs %DEPLIBS% $dependency_libs" ;;
++	link)
++	  libs="$deplibs %DEPLIBS%"
++	  test "X$link_all_deplibs" != Xno && libs="$libs $dependency_libs"
++	  ;;
+ 	esac
+       fi
+       if test "$pass" = dlopen; then

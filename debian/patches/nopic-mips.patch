@@ -1,0 +1,13 @@
+Index: libtool-1.5.26/tests/demo-nopic.test
+===================================================================
+--- libtool-1.5.26.orig/tests/demo-nopic.test	2008-04-05 15:29:05.000000000 +0000
++++ libtool-1.5.26/tests/demo-nopic.test	2008-04-05 15:29:29.000000000 +0000
+@@ -12,7 +12,7 @@
+ 
+ # This doesn't work on hppa
+ case "$host" in
+-hppa*|x86_64*|s390*)
++hppa*|x86_64*|s390*|mips*)
+         echo "Not running on $host, it doesn't like non-PIC shared libs" 2>&1
+         exit 77
+ 	;;

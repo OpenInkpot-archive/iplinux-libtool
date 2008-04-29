@@ -1,0 +1,16 @@
+Index: libtool-1.5.26/ltmain.in
+===================================================================
+--- libtool-1.5.26.orig/ltmain.in	2008-04-05 15:32:04.000000000 +0000
++++ libtool-1.5.26/ltmain.in	2008-04-05 15:32:08.000000000 +0000
+@@ -3272,6 +3272,11 @@
+ 	    revision="$number_minor"
+ 	    lt_irix_increment=no
+ 	    ;;
++	  *)
++	    $echo "$modename: unknown library version type \`$version_type'" 1>&2
++	    $echo "Fatal configuration error.  See the $PACKAGE docs for more information." 1>&2
++	    exit $EXIT_FAILURE
++	    ;;
+ 	  esac
+ 	  ;;
+ 	no)
