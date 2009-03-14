@@ -1,8 +1,8 @@
-Index: libtool-1.5.24/libtool.m4
+Index: libtool/libtool.m4
 ===================================================================
---- libtool-1.5.24.orig/libtool.m4	2007-07-11 20:24:46.000000000 +0200
-+++ libtool-1.5.24/libtool.m4	2007-07-11 20:24:52.000000000 +0200
-@@ -1633,6 +1633,18 @@
+--- libtool.orig/libtool.m4	2009-03-14 23:29:46.000000000 +0600
++++ libtool/libtool.m4	2009-03-14 23:29:49.000000000 +0600
+@@ -1709,6 +1709,18 @@
    dynamic_linker='GNU/Linux ld.so'
    ;;
  
@@ -21,7 +21,7 @@ Index: libtool-1.5.24/libtool.m4
  netbsd*)
    version_type=sunos
    need_lib_prefix=no
-@@ -2407,7 +2419,7 @@
+@@ -2490,7 +2502,7 @@
    lt_cv_deplibs_check_method=pass_all
    ;;
  
@@ -30,7 +30,7 @@ Index: libtool-1.5.24/libtool.m4
    if echo __ELF__ | $CC -E - | grep __ELF__ > /dev/null; then
      lt_cv_deplibs_check_method='match_pattern /lib[[^/]]+(\.so\.[[0-9]]+\.[[0-9]]+|_pic\.a)$'
    else
-@@ -3445,7 +3457,7 @@
+@@ -3501,7 +3513,7 @@
  	;;
      esac
      ;;
@@ -39,7 +39,7 @@ Index: libtool-1.5.24/libtool.m4
      if echo __ELF__ | $CC -E - | grep __ELF__ >/dev/null; then
        _LT_AC_TAGVAR(archive_cmds, $1)='$LD -Bshareable  -o $lib $predep_objects $libobjs $deplibs $postdep_objects $linker_flags'
        wlarc=
-@@ -5134,7 +5146,7 @@
+@@ -5201,7 +5213,7 @@
  	    ;;
  	esac
  	;;
@@ -48,7 +48,7 @@ Index: libtool-1.5.24/libtool.m4
  	;;
        osf3* | osf4* | osf5*)
  	case $cc_basename in
-@@ -5723,7 +5735,7 @@
+@@ -5795,7 +5807,7 @@
        fi
        ;;
  
@@ -57,7 +57,7 @@ Index: libtool-1.5.24/libtool.m4
        if echo __ELF__ | $CC -E - | grep __ELF__ >/dev/null; then
  	_LT_AC_TAGVAR(archive_cmds, $1)='$LD -Bshareable $libobjs $deplibs $linker_flags -o $lib'
  	wlarc=
-@@ -6155,7 +6167,7 @@
+@@ -6226,7 +6238,7 @@
        _LT_AC_TAGVAR(link_all_deplibs, $1)=yes
        ;;
  
@@ -66,10 +66,10 @@ Index: libtool-1.5.24/libtool.m4
        if echo __ELF__ | $CC -E - | grep __ELF__ >/dev/null; then
  	_LT_AC_TAGVAR(archive_cmds, $1)='$LD -Bshareable -o $lib $libobjs $deplibs $linker_flags'  # a.out
        else
-Index: libtool-1.5.24/ltdl.m4
+Index: libtool/ltdl.m4
 ===================================================================
---- libtool-1.5.24.orig/ltdl.m4	2007-07-11 20:24:42.000000000 +0200
-+++ libtool-1.5.24/ltdl.m4	2007-07-11 20:24:52.000000000 +0200
+--- libtool.orig/ltdl.m4	2009-03-14 23:29:45.000000000 +0600
++++ libtool/ltdl.m4	2009-03-14 23:29:49.000000000 +0600
 @@ -150,7 +150,7 @@
      # at 6.2 and later dlopen does load deplibs.
      libltdl_cv_sys_dlopen_deplibs=yes

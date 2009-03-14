@@ -4,3 +4,6 @@ version_type.patch
 dlopen_lt_global.patch
 deplibs_test_disable.patch
 nopic-mips.patch
+120-libdir_search.patch
+110-no_rpath.patch
+stop-using-host-libdir.patch

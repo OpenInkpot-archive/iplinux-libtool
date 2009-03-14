@@ -1,0 +1,14 @@
+Index: libtool/ltmain.in
+===================================================================
+--- libtool.orig/ltmain.in	2009-03-15 00:15:09.000000000 +0600
++++ libtool/ltmain.in	2009-03-15 00:15:28.000000000 +0600
+@@ -2830,7 +2830,8 @@
+ 	      fi
+ 	    else
+ 	      # We cannot seem to hardcode it, guess we'll fake it.
+-	      add_dir="-L$libdir"
++	      #add_dir="-L$libdir"
++	      add_dir=""
+ 	      # Try looking first in the location we're being installed to.
+ 	      if test -n "$inst_prefix_dir"; then
+ 		case $libdir in
