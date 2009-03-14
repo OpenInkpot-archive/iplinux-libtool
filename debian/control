@@ -1,13 +1,12 @@
 Source: libtool
 Build-Depends: debhelper (>= 4.0), texi2html, texinfo, file, gfortran | fortran95-compiler, gcj [!alpha !hppa !arm !hurd-i386], automake1.10, autoconf, autotools-dev, quilt
-Section: devel
+Section: host/tools
 Priority: optional
 Maintainer: Kurt Roeckx <kurt@roeckx.be>
 Standards-Version: 3.7.2.2
 
 Package: libtool
 Architecture: any
-Section: devel
 Depends: gcc | c-compiler, cpp, libc6-dev | libc-dev, file, autotools-dev
 Suggests: libtool-doc, autoconf (>> 2.50), automaken, gcj
 Conflicts: autoconf (<= 2.12), automake (<= 1.3), libtool1.4
@@ -24,7 +23,6 @@ Description: Generic library support script
 
 Package: libtool-doc
 Architecture: all
-Section: doc
 Conflicts: libtool1.4-doc
 Description: Generic library support script
  This package contains the GNU libtool documentation.
@@ -38,7 +36,6 @@ Description: Generic library support script
 
 Package: libltdl3
 Architecture: any
-Section: libs
 Depends: ${shlibs:Depends}
 Description: A system independent dlopen wrapper for GNU libtool
  This package contains the run-time libltdl library.
@@ -57,7 +54,6 @@ Description: A system independent dlopen wrapper for GNU libtool
 
 Package: libltdl3-dev
 Architecture: any
-Section: libdevel
 Suggests: libtool-doc
 Recommends: libtool
 Conflicts: libtool (<< 1.5.20), libtool1.4
