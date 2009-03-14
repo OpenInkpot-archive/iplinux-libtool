@@ -1,3 +1,14 @@
+libtool (1.5.26-4.ip1) asimov; urgency=low
+
+  * First build for IPlinux.
+    - 110-no_rpath.patch, from OE. Disablesh RPATH in generated libraries.
+    - 120-libdir_search.patch. Disables adding -L/usr/lib to the gcc
+      command line from .la files
+    - stop-using-host-libdir.patch. Disables another source of -L/usr/lib
+      in gcc command line.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sun, 15 Mar 2009 00:19:39 +0600
+
 libtool (1.5.26-4) unstable; urgency=low
 
   * Also don't build-depend on gcj on alpha and hppa (Closes: #477890)
